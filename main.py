@@ -19,6 +19,7 @@ async def three():
 async def main():
     await asyncio.gather(one(), two(), three())
 
+
 if __name__ == '__main__':
     start = time.time()
     asyncio.run(main())
