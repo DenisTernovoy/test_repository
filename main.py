@@ -16,8 +16,13 @@ async def three():
     await asyncio.sleep(10)
     print('End 3')
 
+async def four():
+    print('Start 3')
+    await asyncio.sleep(20)
+    print('End 3')
+
 async def main():
-    await asyncio.gather(one(), two(), three())
+    await asyncio.gather(one(), two(), three(), four())
 
 
 if __name__ == '__main__':
