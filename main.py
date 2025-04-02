@@ -1,5 +1,7 @@
 import asyncio
 import time
+import re
+
 
 async def one():
     print('Start 1')
@@ -24,8 +26,15 @@ async def four():
 async def main():
     await asyncio.gather(one(), two(), three(), four())
 
+def check_phone_number():
+    num = input()
+    res = re.search(r'\+?([7, 8])\s?\(?(9\d{2})\s?\)?-?(\d{3})[\s-]?(\d{2})[\s-]?(\d{2})', num)
+    if res:
+        num = res.group(1) + res.group(2) + res.group(3) + res.group(4) + res.group(5)
+        print(num)
 
 if __name__ == '__main__':
-    start = time.time()
-    asyncio.run(main())
-    print(time.time() - start)
+    check_phone_number()
+    # start = time.time()
+    # asyncio.run(main())
+    # print(time.time() - start)
